@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { ReactNode } from 'react';
 
 import { AppConfig } from '@/utils/AppConfig';
+import { VscLinkExternal } from 'react-icons/vsc';
+import Image from 'next/image'
+import { Arsenal, Liverpool, ManCity, ManUtd  } from './Logos'
 
 type IMainProps = {
   meta: ReactNode;
@@ -12,15 +15,47 @@ const Main = (props: IMainProps) => (
   <div className="w-full px-1 text-gray-700 antialiased">
     {props.meta}
 
-    <div className="mx-auto max-w-screen-md">
-      <div className="border-b border-gray-300">
-        <div className="pt-16 pb-8">
-          <div className="text-3xl font-bold text-gray-900">
-            {AppConfig.title}
+    <div>
+      <header>
+        <div className='flex'>
+          <div className='flex items-center text-xs'>
+            <h4 className='uppercase font-bold'>Club Sites</h4>
+            <VscLinkExternal className='ml-1'/>
           </div>
-          <div className="text-xl">{AppConfig.description}</div>
+
+          <ul className='flex'>
+            <li>
+              <Image src={Arsenal} width={30} height={30} alt='Arsenal'/>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li>
+              <Image src={Liverpool} width={30} height={30} alt='Liverpool'/>
+            </li>
+            <li>
+              <Image src={ManCity} width={30} height={30} alt='Man City'/>
+            </li>
+            <li>
+              <Image src={ManUtd} width={30} height={30} alt='Man Utd'/>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
         </div>
-        <div>
+
+        <nav>
           <ul className="flex flex-wrap text-xl">
             <li className="mr-6">
               <Link href="/">
@@ -45,24 +80,14 @@ const Main = (props: IMainProps) => (
               </a>
             </li>
           </ul>
-        </div>
-      </div>
+        </nav>
+      </header>
 
-      <div className="content py-5 text-xl">{props.children}</div>
+      <div className="content py-5 text-xl mx-auto max-w-screen-lg">{props.children}</div>
 
-      <div className="border-t border-gray-300 py-8 text-center text-sm">
-        © Copyright {new Date().getFullYear()} {AppConfig.title}. Powered with{' '}
-        <span role="img" aria-label="Love">
-          ♥
-        </span>{' '}
-        by <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a>
-        {/*
-         * PLEASE READ THIS SECTION
-         * We'll really appreciate if you could have a link to our website
-         * The link doesn't need to appear on every pages, one link on one page is enough.
-         * Thank you for your support it'll mean a lot for us.
-         */}
-      </div>
+      <footer>
+        <span className='text-bold text-sm' >&copy; Premier League {new Date().getFullYear()}</span>
+      </footer>
     </div>
   </div>
 );
